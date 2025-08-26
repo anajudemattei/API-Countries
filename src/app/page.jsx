@@ -2,15 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 export default function Home() {
 	return (
-		<main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-300 to-blue-600 p-6">
-			<div className="w-full max-w-3xl rounded-xl shadow-lg bg-gradient-to-br from-blue-200 to-blue-500 p-10 flex flex-col items-center">
+		<main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-cyan-100 to-cyan-700 p-6">
+			<div className="w-full max-w-3xl rounded-xl shadow-lg bg-gradient-to-br from-cyan-200 to-cyan-600 p-10 flex flex-col items-center">
 				<div className="flex flex-col items-center w-full">
 												<Image
 													src="/anaju.jpg"
 													alt="Foto de perfil de Ana Julia Demattei"
 													width={180}
 													height={180}
-													className="rounded-full border-4 border-blue-400 shadow-lg mb-4 mt-6 object-cover"
+													className="rounded-full border-4 border-cyan-400 shadow-lg mb-4 mt-6 object-cover"
 												/>
 									<h1 className="text-4xl md:text-4xl font-bold text-center mb-4">Seja Bem-Vindo!</h1>
 							<p className="text-center text-lg mb-1">Eu sou a Ana Julia Demattei, estudante do SENAI de Valinhos-SP na turma TDS1, durante essa atividade de Front-End, estou desenvolvendo um projeto utilizando tailwind e outras tecnologias, com auxilio dos instrutores Thiago Ferreira e Marcelo Carboni.</p>
@@ -29,7 +29,7 @@ export default function Home() {
 													</div>
 
 																				 <Link href="/sobre">
-																					 <button className="bg-blue-300 hover:bg-blue-400 text-blue-900 font-medium py-2 px-6 rounded transition-colors duration-200 shadow-md">
+																					 <button className="bg-cyan-300 hover:bg-cyan-400 text-cyan-900 font-medium py-2 px-6 rounded transition-colors duration-200 shadow-md">
 																						 Venha conhecer a API!
 																					 </button>
 																				 </Link>
