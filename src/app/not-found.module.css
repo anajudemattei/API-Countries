@@ -1,0 +1,158 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; 
+    background: linear-gradient(to bottom, #ffffff, #9dd2e4); 
+    padding: 20px; 
+}
+
+.sistema {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.terra {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-image: url('/mundo.png'); 
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 2;
+}
+
+.orbitaContainer { 
+    position: absolute;
+    width: 300px; 
+    height: 300px;
+    animation: orbitar 5s linear infinite;
+}
+
+.lua {
+    width: 60px; 
+    height: 60px; 
+    border-radius: 50%; 
+    background-image: url('/airplane.png'); 
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    position: absolute;
+    top: 0; 
+    left: 10%; 
+    transform: translate(50%) rotate(45deg); 
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.link {
+    background-color: #49c5ef;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+.link:hover {
+    background-color: #555;
+}
+
+@keyframes orbitar {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .sistema {
+        width: 300px;
+        height: 300px;
+    }
+
+    .terra {
+        width: 150px;
+        height: 150px;
+    }
+
+    .orbitaContainer {
+        width: 200px;
+        height: 200px;
+    }
+
+    .lua {
+        width: 40px;
+        height: 40px;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .description {
+        font-size: 0.9rem;
+    }
+
+    .link {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sistema {
+        width: 200px;
+        height: 200px;
+    }
+
+    .terra {
+        width: 100px;
+        height: 100px;
+    }
+
+    .orbitaContainer {
+        width: 150px;
+        height: 150px;
+    }
+
+    .lua {
+        width: 30px;
+        height: 30px;
+    }
+
+    .title {
+        font-size: 1.2rem;
+    }
+
+    .description {
+        font-size: 0.8rem;
+    }
+
+    .link {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}
