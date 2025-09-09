@@ -1,45 +1,82 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
-    return (
-        <main
-            className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-cyan-100 to-cyan-700 p-6"
-            style={{
-                backgroundImage: "url('/planeta.gif')",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                opacity: 0.5, 
-            }}
-        >
-            <div
-                className="relative w-full max-w-3xl rounded-xl shadow-lg p-10 flex flex-col items-center"
-                style={{
-                    backgroundColor: "white", 
-                    zIndex: 10, 
-                }}
-            >
-                <Image
-                    src="/anaju.jpg"
-                    alt="Foto de perfil de Ana Julia Demattei"
-                    width={180}
-                    height={180}
-                    className="rounded-full border-4 border-cyan-400 shadow-lg mb-6 object-cover"
-                />
-                <h1 className="text-4xl font-bold text-center mb-4 text-cyan-900">Ana Julia Demattei</h1>
-                <p className="text-lg text-center text-cyan-800 mb-4">
-                    Turma: TDS1 | Escola: SENAI Valinhos-SP
+  return (
+    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-emerald-200 via-teal-200 to-sky-300 p-6">
+      <div className="w-full max-w-4xl rounded-xl shadow-xl bg-gradient-to-br from-cyan-100 via-sky-100 to-emerald-100 p-12 flex flex-col items-center relative overflow-hidden">
+        
+        <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+          <div className="absolute top-10 left-10 w-20 h-20 bg-emerald-400 rounded-full"></div>
+          <div className="absolute bottom-10 right-10 w-16 h-16 bg-sky-400 rounded-full"></div>
+          <div className="absolute top-1/2 right-20 w-12 h-12 bg-teal-400 rounded-full"></div>
+          <div className="absolute bottom-1/3 left-16 w-8 h-8 bg-cyan-400 rounded-full"></div>
+        </div>
+
+        <div className="flex flex-col items-center w-full relative z-10">
+          
+          <div className="mb-8">
+            <Image
+              src="/mundo.png"
+              alt="Imagem do mundo"
+              width={100}
+              height={100}
+              className="rounded-full border-4 border-emerald-400 shadow-2xl object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+
+          <div className="text-center mb-8">
+            <h1 className="text-5xl md:text-6xl font-bold text-emerald-800 mb-4 tracking-tight">
+              Countries API
+            </h1>
+            <p className="text-xl text-emerald-700 font-medium mb-6">
+              Explore países de todo o mundo
+            </p>
+          </div>
+
+          <div className="bg-white/20 backdrop-blur-sm rounded-xl p-8 mb-8 shadow-md border border-white/20">
+            <div className="flex flex-col items-center justify-center gap-6">
+              <Image
+                src="/anaju.jpg"
+                alt="Minha foto"
+                width={150}
+                height={150}
+                className="rounded-full border-3 border-emerald-400 shadow-xl object-cover"
+              />
+              <div className="text-center space-y-2">
+                <p className="text-emerald-800 font-semibold text-lg">Desenvolvido por</p>
+                <p className="text-emerald-700 font-bold text-2xl">Ana Julia Demattei</p>
+                <p className="text-emerald-600 font-medium text-base">Turma: 2TDS1</p>
+              </div>
+              <div className="bg-emerald-100/50 rounded-lg p-4 border border-emerald-200">
+                <p className="text-emerald-800 text-center italic text-sm leading-relaxed">
+                  "A vida é feita de escolhas. E cada escolha é uma renúncia. Isso é inevitável." - Pequeno 
                 </p>
-                <blockquote className="text-center text-lg italic text-cyan-700 mb-6">
-                    {/*citação */}
-                </blockquote>
-                <div className="mt-8">
-                    <a href="/sobre">
-                        <button className="bg-cyan-300 hover:bg-cyan-400 text-cyan-900 font-medium py-2 px-6 rounded transition-colors duration-200 shadow-md">
-                            Explorar Países
-                        </button>
-                    </a>
-                </div>
+              </div>
             </div>
-        </main>
-    );
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-6 items-center justify-center">
+            <Link href="/sobre">
+              <button className="group bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 border-2 border-emerald-600">
+                <span className="flex items-center gap-2">
+                  <span>📖 Sobre o Projeto</span>
+                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </span>
+              </button>
+            </Link>
+            
+            <Link href="/paises">
+              <button className="group bg-white hover:bg-emerald-50 text-emerald-700 font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 border-2 border-emerald-300">
+                <span className="flex items-center gap-2">
+                  <span>🌍 Ver Países</span>
+                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </span>
+              </button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
 }
