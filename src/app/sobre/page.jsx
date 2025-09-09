@@ -38,7 +38,7 @@ export default function Home() {
                                 Voltar para a página inicial
                             </button>
                         </Link>
-                        <Link href="/app/pacientes">
+                        <Link href="/paises">
                             <button className="bg-cyan-300 hover:bg-sky-400 text-cyan-900 font-medium py-2 px-6 rounded transition-colors duration-200 shadow-md">
                                 Continuar vendo o projeto
                             </button>

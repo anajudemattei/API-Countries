@@ -14,7 +14,7 @@ export default function Home() {
             <div
                 className="relative w-full max-w-3xl rounded-xl shadow-lg p-10 flex flex-col items-center"
                 style={{
-                    backgroundColor: "white", /
+                    backgroundColor: "white", 
                     zIndex: 10, 
                 }}
             >
