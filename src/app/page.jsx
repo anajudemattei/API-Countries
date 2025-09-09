@@ -48,6 +48,67 @@ export default function Home() {
                 <p className="text-emerald-700 font-bold text-2xl">Ana Julia Demattei</p>
                 <p className="text-emerald-600 font-medium text-base">Turma: 2TDS1</p>
               </div>
+              
+              <div className="flex items-center justify-center gap-4">
+                <a 
+                  href="https://github.com/anajudemattei" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  title="GitHub"
+                >
+                  <Image
+                    src="/github.png"
+                    alt="GitHub"
+                    width={24}
+                    height={24}
+                    className="object-contain"
+                  />
+                </a>
+
+                <a 
+                  href="https://instagram.com/anajudemattei" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  title="GitHub"
+                >
+                  <Image
+                    src="/instagram.png"
+                    alt="GitHub"
+                    width={24}
+                    height={24}
+                    className="object-contain"
+                  />
+                </a>
+                
+                <a 
+                  href="https://linkedin.com/in/ana-julia-demattei" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  title="LinkedIn"
+                >
+                  <Image
+                    src="/linkedin.png"
+                    alt="LinkedIn"
+                    width={24}
+                    height={24}
+                    className="object-contain"
+                  />
+                </a>
+                
+                <a 
+                  href="mailto:anaju.demattei@gmail.com" 
+                  title="Gmail"
+                >
+                  <Image
+                    src="/gmail.png"
+                    alt="Gmail"
+                    width={24}
+                    height={24}
+                    className="object-contain"
+                  />
+                </a>
+              </div>
+
               <div className="bg-emerald-100/50 rounded-lg p-4 border border-emerald-200">
                 <p className="text-emerald-800 text-center italic text-sm leading-relaxed">
                   "A vida é feita de escolhas. E cada escolha é uma renúncia. Isso é inevitável." - Pequeno 
