@@ -9,8 +9,9 @@ const CountriesPage = () => {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [searchTerm, setSearchTerm] = useState('');
 
-  const paginationOptions = [5, 10, 20, 50, 100, 200, 'Todos'];
+  const paginationOptions = [5, 10, 20, 50, 100, 200, 245];
 
   useEffect(() => {
     const fetchAllCountries = async () => {
@@ -49,10 +50,18 @@ const CountriesPage = () => {
     fetchAllCountries();
   }, []);
 
+  const filteredCountries = countries.filter(country =>
+    country.name.common.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    (country.name.official && country.name.official.toLowerCase().includes(searchTerm.toLowerCase())) ||
+    (country.capital && country.capital.some(cap => cap.toLowerCase().includes(searchTerm.toLowerCase()))) ||
+    (country.region && country.region.toLowerCase().includes(searchTerm.toLowerCase())) ||
+    (country.subregion && country.subregion.toLowerCase().includes(searchTerm.toLowerCase()))
+  );
+
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentCountries = itemsPerPage === 'todos' ? countries : countries.slice(indexOfFirstItem, indexOfLastItem);
-  const totalPages = itemsPerPage === 'todos' ? 1 : Math.ceil(countries.length / itemsPerPage);
+  const currentCountries = itemsPerPage === 'todos' ? filteredCountries : filteredCountries.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = itemsPerPage === 'todos' ? 1 : Math.ceil(filteredCountries.length / itemsPerPage);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -63,6 +72,16 @@ const CountriesPage = () => {
     setItemsPerPage(newItemsPerPage);
     setCurrentPage(1);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+    setCurrentPage(1); 
+  };
+
+  const clearSearch = () => {
+    setSearchTerm('');
+    setCurrentPage(1);
   };
 
   const getPageNumbers = () => {
@@ -121,13 +140,52 @@ const CountriesPage = () => {
           </Link>
         </div>
 
-        {countries.length > 0 && (
+        <div className="mb-8">
+          <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+            <div className="max-w-2xl mx-auto">
+              <h2 className="text-xl font-bold text-emerald-800 mb-4 text-center">
+                🔍 Pesquisar Países
+              </h2>
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Digite o nome do país, capital, região..."
+                  value={searchTerm}
+                  onChange={handleSearchChange}
+                  className="w-full px-4 py-3 pl-12 pr-12 border border-emerald-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-emerald-800 placeholder-emerald-400"
+                />
+                <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
+                  <svg className="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </div>
+                {searchTerm && (
+                  <button
+                    onClick={clearSearch}
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-emerald-500 hover:text-emerald-700 transition-colors duration-200"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                )}
+              </div>
+              {searchTerm && (
+                <p className="text-sm text-emerald-600 mt-2 text-center">
+                  {filteredCountries.length} país(es) encontrado(s) para "{searchTerm}"
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {filteredCountries.length > 0 && (
           <div className="mb-8">
             <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg">
               <div className="flex flex-col md:flex-row justify-center items-center gap-4">
                 <div className="flex flex-col md:flex-row items-center gap-4">
                   <h2 className="text-xl font-bold text-emerald-800">
-                    {countries.length} países encontrados
+                    {searchTerm ? `${filteredCountries.length} países encontrados` : `${filteredCountries.length} países encontrados`}
                   </h2>
                   <div className="flex items-center gap-2">
                     <div className="flex gap-1">
@@ -148,6 +206,26 @@ const CountriesPage = () => {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        )}
+
+        {filteredCountries.length === 0 && searchTerm && (
+          <div className="mb-8">
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg text-center">
+              <div className="text-6xl mb-4">🌍</div>
+              <h3 className="text-2xl font-bold text-emerald-800 mb-2">
+                Nenhum país encontrado
+              </h3>
+              <p className="text-emerald-600 mb-4">
+                Não foi possível encontrar países com o termo "{searchTerm}"
+              </p>
+              <button
+                onClick={clearSearch}
+                className="bg-emerald-500 hover:bg-emerald-600 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-200 shadow-md"
+              >
+                Limpar pesquisa
+              </button>
             </div>
           </div>
         )}
