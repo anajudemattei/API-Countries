@@ -30,7 +30,7 @@ export default function Home() {
               Countries API
             </h1>
             <p className="text-xl text-emerald-700 font-medium mb-6">
-              Explore países de todo o mundo
+              Explore os países de todo o mundo!
             </p>
           </div>
 
@@ -111,7 +111,7 @@ export default function Home() {
 
               <div className="bg-emerald-100/50 rounded-lg p-4 border border-emerald-200">
                 <p className="text-emerald-800 text-center italic text-sm leading-relaxed">
-                  "A vida é feita de escolhas. E cada escolha é uma renúncia. Isso é inevitável." - Pequeno 
+                  "A vida é feita de escolhas. E cada escolha é uma renúncia. Isso é inevitável." - Pequeno Príncipe 
                 </p>
               </div>
             </div>

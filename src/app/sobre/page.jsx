@@ -38,7 +38,7 @@ export default function Home() {
                         </p>
                     </div>
 
-                    <h2 className="text-2xl font-bold text-center mb-4 text-emerald-700">Conheça a API!</h2>
+                    <h2 className="text-2xl font-bold text-center mb-4 text-emerald-700">Conheça a API! ⬇️</h2>
                     <div className="flex flex-row gap-5 justify-center items-center mb-8">
                         <a href="https://restcountries.com/#rest-countries" target="_blank" rel="noopener noreferrer" title="REST Countries API" className="group">
                             <div className="bg-white/50 p-3 rounded-full shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
